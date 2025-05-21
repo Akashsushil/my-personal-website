@@ -3,73 +3,166 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>Welcome To Akash Susheeelan</title>
+  <title>Akash Susheelan | Portfolio</title>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600&display=swap" rel="stylesheet">
   <style>
+    * {
+      box-sizing: border-box;
+    }
+
     body {
       margin: 0;
-      padding: 0;
-      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-      background: linear-gradient(135deg, #0f2027, #203a43, #2c5364);
-      color: white;
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      justify-content: center;
+      font-family: 'Inter', sans-serif;
       height: 100vh;
-    }
-
-    h1 {
-      margin-bottom: 40px;
-      font-size: 2.5rem;
-    }
-
-    .button-container {
+      background: linear-gradient(-45deg, #1e3c72, #2a5298, #1e3c72, #0f2027);
+      background-size: 400% 400%;
+      animation: gradientBG 15s ease infinite;
       display: flex;
-      gap: 20px;
+      justify-content: center;
+      align-items: center;
+    }
+
+    @keyframes gradientBG {
+      0% { background-position: 0% 50%; }
+      50% { background-position: 100% 50%; }
+      100% { background-position: 0% 50%; }
+    }
+
+    .card {
+      background-color: rgba(255, 255, 255, 0.95);
+      padding: 40px;
+      border-radius: 16px;
+      box-shadow: 0 10px 30px rgba(0, 0, 0, 0.25);
+      text-align: center;
+      max-width: 500px;
+      width: 90%;
+      backdrop-filter: blur(8px);
+    }
+
+    .card h1 {
+      font-size: 2.2rem;
+      margin-bottom: 0.5rem;
+      color: #111827;
+    }
+
+    .card p {
+      color: #374151;
+      font-size: 1rem;
+      margin-bottom: 2rem;
+    }
+
+    .buttons {
+      display: flex;
+      gap: 15px;
       flex-wrap: wrap;
       justify-content: center;
     }
 
     .btn {
-      padding: 15px 30px;
-      font-size: 1.1rem;
-      border: none;
-      border-radius: 10px;
-      cursor: pointer;
-      background-color: #00c6ff;
+      background-color: #1f2937;
       color: white;
-      transition: background-color 0.3s ease;
+      padding: 12px 24px;
+      font-size: 0.95rem;
+      border: none;
+      border-radius: 8px;
       text-decoration: none;
+      transition: background-color 0.3s ease, transform 0.2s ease;
+      cursor: pointer;
     }
 
     .btn:hover {
-      background-color: #007acc;
+      background-color: #111827;
+      transform: translateY(-2px);
     }
 
-    iframe {
-      width: 80%;
+    /* Resume Modal */
+    .modal {
+      display: none;
+      position: fixed;
+      top: 0; left: 0;
+      width: 100%;
+      height: 100%;
+      background-color: rgba(0,0,0,0.8);
+      justify-content: center;
+      align-items: center;
+      z-index: 1000;
+    }
+
+    .modal-content {
+      width: 90%;
+      max-width: 800px;
+      background: white;
+      padding: 1rem;
+      border-radius: 12px;
+      position: relative;
+    }
+
+    .modal iframe {
+      width: 100%;
       height: 80vh;
-      border: 2px solid white;
-      margin-top: 30px;
+      border: none;
+    }
+
+    .close-btn {
+      position: absolute;
+      top: 10px;
+      right: 16px;
+      background: none;
+      border: none;
+      font-size: 1.5rem;
+      cursor: pointer;
+      color: #6b7280;
+    }
+
+    @media (max-width: 480px) {
+      .card {
+        padding: 30px 20px;
+      }
+
+      .btn {
+        width: 100%;
+        text-align: center;
+      }
     }
   </style>
 </head>
 <body>
-  <h1>Welcome to My Website</h1>
-  <div class="button-container">
-    <button class="btn" onclick="showResume()">View Resume</button>
-    <a class="btn" href="https://www.linkedin.com/in/akashsusheelan/" target="_blank">LinkedIn</a>
-    <a class="btn" href="https://github.com/Akashsushil" target="_blank">GitHub</a>
+
+  <div class="card">
+    <h1>Akash Susheelan</h1>
+    <p>Software Tester | Hunting Bugs</p>
+
+    <div class="buttons">
+      <button class="btn" onclick="showResume()">View Resume</button>
+      <a class="btn" href="https://www.linkedin.com/in/akashsusheelan/" target="_blank">LinkedIn</a>
+      <a class="btn" href="https://github.com/Akashsushil" target="_blank">GitHub</a>
+    </div>
   </div>
 
-  <div id="resume-viewer" style="display:none;">
-    <iframe src="Akash-resume.pdf"></iframe>
+  <!-- Resume Modal -->
+  <div class="modal" id="resumeModal">
+    <div class="modal-content">
+      <button class="close-btn" onclick="closeResume()">&times;</button>
+      <iframe src="Akash-resume.pdf"></iframe>
+    </div>
   </div>
 
   <script>
     function showResume() {
-      document.getElementById('resume-viewer').style.display = 'block';
+      document.getElementById('resumeModal').style.display = 'flex';
     }
+
+    function closeResume() {
+      document.getElementById('resumeModal').style.display = 'none';
+    }
+
+    window.onclick = function(event) {
+      const modal = document.getElementById('resumeModal');
+      if (event.target === modal) {
+        modal.style.display = "none";
+      }
+    };
   </script>
+
 </body>
 </html>
