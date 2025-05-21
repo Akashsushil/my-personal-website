@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Welcome To Akash Susheeelan</title>
+  <style>
+    body {
+      margin: 0;
+      padding: 0;
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      background: linear-gradient(135deg, #0f2027, #203a43, #2c5364);
+      color: white;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      height: 100vh;
+    }
+
+    h1 {
+      margin-bottom: 40px;
+      font-size: 2.5rem;
+    }
+
+    .button-container {
+      display: flex;
+      gap: 20px;
+      flex-wrap: wrap;
+      justify-content: center;
+    }
+
+    .btn {
+      padding: 15px 30px;
+      font-size: 1.1rem;
+      border: none;
+      border-radius: 10px;
+      cursor: pointer;
+      background-color: #00c6ff;
+      color: white;
+      transition: background-color 0.3s ease;
+      text-decoration: none;
+    }
+
+    .btn:hover {
+      background-color: #007acc;
+    }
+
+    iframe {
+      width: 80%;
+      height: 80vh;
+      border: 2px solid white;
+      margin-top: 30px;
+    }
+  </style>
+</head>
+<body>
+  <h1>Welcome to My Website</h1>
+  <div class="button-container">
+    <button class="btn" onclick="showResume()">View Resume</button>
+    <a class="btn" href="https://www.linkedin.com/in/akashsusheelan/" target="_blank">LinkedIn</a>
+    <a class="btn" href="https://github.com/Akashsushil" target="_blank">GitHub</a>
+  </div>
+
+  <div id="resume-viewer" style="display:none;">
+    <iframe src="Akash-resume.pdf"></iframe>
+  </div>
+
+  <script>
+    function showResume() {
+      document.getElementById('resume-viewer').style.display = 'block';
+    }
+  </script>
+</body>
+</html>
