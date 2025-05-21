@@ -2,9 +2,9 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Akash Susheelan | Portfolio</title>
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700&display=swap" rel="stylesheet">
   <style>
     * {
       box-sizing: border-box;
@@ -12,92 +12,125 @@
 
     body {
       margin: 0;
-      font-family: 'Inter', sans-serif;
-      height: 100vh;
-      background: linear-gradient(-45deg, #1e3c72, #2a5298, #1e3c72, #0f2027);
-      background-size: 400% 400%;
-      animation: gradientBG 15s ease infinite;
+      font-family: 'Orbitron', sans-serif;
+      background: radial-gradient(circle at top left, #2c3e50, #000);
+      color: #fff;
       display: flex;
-      justify-content: center;
+      flex-direction: column;
       align-items: center;
+      min-height: 100vh;
+      padding: 40px 20px;
+      overflow-x: hidden;
     }
 
-    @keyframes gradientBG {
-      0% { background-position: 0% 50%; }
-      50% { background-position: 100% 50%; }
-      100% { background-position: 0% 50%; }
+    @keyframes pulse {
+      0% { transform: scale(1); }
+      50% { transform: scale(1.03); }
+      100% { transform: scale(1); }
+    }
+
+    @keyframes fadeInUp {
+      0% { opacity: 0; transform: translateY(40px); }
+      100% { opacity: 1; transform: translateY(0); }
+    }
+
+    .about {
+      background: rgba(0, 0, 0, 0.8);
+      padding: 30px;
+      border-radius: 20px;
+      max-width: 800px;
+      text-align: center;
+      box-shadow: 0 10px 30px rgba(0,0,0,0.5);
+      animation: fadeInUp 1s ease forwards;
+    }
+
+    .about h2 {
+      font-size: 2.2rem;
+      color: #00e6e6;
+      margin-bottom: 10px;
+    }
+
+    .about p {
+      font-size: 1.1rem;
+      line-height: 1.7;
+      color: #ccc;
     }
 
     .card {
-      background-color: rgba(255, 255, 255, 0.95);
+      background: rgba(255, 255, 255, 0.1);
       padding: 40px;
-      border-radius: 16px;
-      box-shadow: 0 10px 30px rgba(0, 0, 0, 0.25);
+      border-radius: 20px;
+      margin-top: 30px;
       text-align: center;
-      max-width: 500px;
+      max-width: 600px;
       width: 90%;
-      backdrop-filter: blur(8px);
+      box-shadow: 0 10px 30px rgba(0,0,0,0.4);
+      animation: fadeInUp 1s ease 0.5s forwards;
+      opacity: 0;
     }
 
     .card h1 {
-      font-size: 2.2rem;
+      font-size: 2.8rem;
+      color: #00e6e6;
       margin-bottom: 0.5rem;
-      color: #111827;
     }
 
     .card p {
-      color: #374151;
-      font-size: 1rem;
+      font-size: 1.2rem;
+      color: #eee;
       margin-bottom: 2rem;
     }
 
     .buttons {
       display: flex;
-      gap: 15px;
       flex-wrap: wrap;
+      gap: 15px;
       justify-content: center;
     }
 
     .btn {
-      background-color: #1f2937;
-      color: white;
+      background: linear-gradient(135deg, #ff416c, #ff4b2b);
+      color: #fff;
       padding: 12px 24px;
-      font-size: 0.95rem;
+      font-size: 1rem;
+      font-weight: 600;
       border: none;
-      border-radius: 8px;
-      text-decoration: none;
-      transition: background-color 0.3s ease, transform 0.2s ease;
+      border-radius: 30px;
       cursor: pointer;
+      text-decoration: none;
+      transition: all 0.4s ease;
+      animation: pulse 3s infinite;
     }
 
     .btn:hover {
-      background-color: #111827;
-      transform: translateY(-2px);
+      transform: translateY(-4px);
+      box-shadow: 0 8px 20px rgba(255, 75, 43, 0.6);
     }
 
-    /* Resume Modal */
     .modal {
       display: none;
       position: fixed;
       top: 0; left: 0;
       width: 100%;
       height: 100%;
-      background-color: rgba(0,0,0,0.8);
+      background-color: rgba(0,0,0,0.85);
       justify-content: center;
       align-items: center;
       z-index: 1000;
     }
 
     .modal-content {
-      width: 90%;
-      max-width: 800px;
-      background: white;
-      padding: 1rem;
+      background: #111;
       border-radius: 12px;
+      padding: 1rem;
+      max-width: 90%;
+      max-height: 90vh;
+      overflow: auto;
       position: relative;
     }
 
-    .modal iframe {
+    .modal-content iframe,
+    .modal-content img {
       width: 100%;
       height: 80vh;
       border: none;
@@ -111,57 +144,84 @@
       border: none;
       font-size: 1.5rem;
       cursor: pointer;
-      color: #6b7280;
-    }
-
-    @media (max-width: 480px) {
-      .card {
-        padding: 30px 20px;
-      }
-
-      .btn {
-        width: 100%;
-        text-align: center;
-      }
+      color: #fff;
     }
   </style>
 </head>
 <body>
 
+  <div class="about">
+    <h2>About Me</h2>
+    <p>
+      I'm Akash Susheelan — a passionate software tester specializing in both manual and automation testing. With hands-on expertise in Selenium, TestNG, JIRA, Postman, and Agile methodologies, I focus on improving software quality and user experience through effective QA practices.
+      <br><br>
+      My portfolio includes real-world testing projects, certifications, and proof of quality assurance excellence. Whether debugging critical systems or streamlining workflows through automation, I aim to be the last line of defense between bugs and users.
+    </p>
+  </div>
+
   <div class="card">
     <h1>Akash Susheelan</h1>
-    <p>Software Tester | Hunting Bugs</p>
-
+    <p>Software Tester | Automation & QA Enthusiast</p>
     <div class="buttons">
-      <button class="btn" onclick="showResume()">View Resume</button>
+      <button class="btn" onclick="showModal('resume')">Resume</button>
+      <button class="btn" onclick="showModal('certificate')">Certificates</button>
+      <button class="btn" onclick="showModal('projects')">Projects</button>
       <a class="btn" href="https://www.linkedin.com/in/akashsusheelan/" target="_blank">LinkedIn</a>
       <a class="btn" href="https://github.com/Akashsushil" target="_blank">GitHub</a>
+      <a class="btn" href="https://wa.me/919744053190" target="_blank">WhatsApp</a>
     </div>
   </div>
 
-  <!-- Resume Modal -->
-  <div class="modal" id="resumeModal">
+  <!-- Modals -->
+  <div class="modal" id="resume">
     <div class="modal-content">
-      <button class="close-btn" onclick="closeResume()">&times;</button>
-      <iframe src="Akash-resume.pdf"></iframe>
+      <button class="close-btn" onclick="closeModal('resume')">&times;</button>
+      <iframe src="AKASH-SUSHEELAN-qacv.pdf"></iframe>
+    </div>
+  </div>
+
+  <div class="modal" id="certificate">
+    <div class="modal-content">
+      <button class="close-btn" onclick="closeModal('certificate')">&times;</button>
+      <img src="scrum.jpeg" alt="Certificate">
+      <img src="automated python.jpg" alt="Certificate">
+      <img src="Selenium.jpeg" alt="Certificate">
+      <img src="software testing.jpeg" alt="Certificate">
+      <img src="data science.jpeg" alt="Certificate">
+      <img src="dbms.jpeg" alt="Certificate">
+      <img src="iot.jpeg" alt="Certificate">
+    </div>
+  </div>
+
+  <div class="modal" id="projects">
+    <div class="modal-content">
+      <button class="close-btn" onclick="closeModal('projects')">&times;</button>
+      <p style="font-size: 1.1rem; color: #fff;">
+        <strong>Project 1:</strong> Automated Test Suite with Selenium<br>
+        <strong>Project 2:</strong> API Testing with Postman<br>
+        <strong>Project 3:</strong> Bug Tracking System<br>
+        <strong>Project 4:</strong> Responsive Portfolio Website
+      </p>
     </div>
   </div>
 
   <script>
-    function showResume() {
-      document.getElementById('resumeModal').style.display = 'flex';
+    function showModal(id) {
+      document.getElementById(id).style.display = 'flex';
     }
 
-    function closeResume() {
-      document.getElementById('resumeModal').style.display = 'none';
+    function closeModal(id) {
+      document.getElementById(id).style.display = 'none';
     }
 
     window.onclick = function(event) {
-      const modal = document.getElementById('resumeModal');
-      if (event.target === modal) {
-        modal.style.display = "none";
-      }
-    };
+      ['resume', 'certificate', 'projects'].forEach(id => {
+        const modal = document.getElementById(id);
+        if (event.target === modal) {
+          modal.style.display = 'none';
+        }
+      });
+    }
   </script>
 
 </body>
